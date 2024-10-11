@@ -4,70 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration Form</title>
     <style>
-        .div1 {
-            border: 4px solid rgb(25, 153, 204);
-            width: 729px;
-            height: 429px;
-            text-align: center;
+        body {
+            border: 10px solid aqua;
+            margin: 0;
+            height: 450px;
+            width: 650px;
         }
     </style>
+
 </head>
-<div class="div1">
 
-    <body>
-        <h2> Registration </h2>
-        <h3>Personal Details</h3>
-        <br>
-        <table>
-            <tr>
-                <td>Full Name</td>
-                <td><input type="text" placeholder="Enter your name"></td>
-                <td>Father Name</td>
-                <td><input type="text" placeholder="Enter father name"></td>
-                <td>Mother Name</td>
-                <td><input type="text" placeholder="Enter mother name"></td>
+<body>
+    <center>
+        <html class="main">
 
-            </tr>
-            <tr>
-                <td>Date of Birth</td>
-                <td><input type="text" placeholder="Enter your DOB"></td>
-                <td>Full Name</td>
-                <td><input type="text" placeholder="Enter aadhar number"></td>
-                <td>Email</td>
-                <td><input type="text" placeholder="Enter your email"></td>
-            </tr>
-            <tr>
-                <td>Mobile Number</td>
-                <td><input type="text" placeholder="Enter mobile number"></td>
-                <td>Gender</td>
-                <td><input type="text" placeholder="Enter your gender"></td>
-                <td>Address</td>
-                <td><input type="text" placeholder="Enter your Address"></td>
-            </tr>
-        </table>
-        <h4> Other Details</h4>
-        <table>
-            <tr>
-                <td>Stream</td>
-                <td><input type="text" placeholder="Enter your stream"></td>
-                <td>Previous Class</td>
-                <td><input type="text" placeholder="Enter previous class"></td>
-                <td>Hobbies</td>
-                <td><input type="text" placeholder="Enter your hobbies"></td>
-            </tr>
-            <tr>
-                <td>Account Number</td>
-                <td><input type="text" placeholder="Enter account number"></td>
-                <td>Religion</td>
-                <td><input type="text" placeholder="Enter your religion"></td>
-                <td>Category</td>
-                <td><input type="text" placeholder="Enter your category"></td>
-            </tr>
-        </table>
-        <input type="button" value="submit" style="background-color: rgb(200, 97, 18);" </form>
-    </body>
-</div>
+        <div class=form>
+            <form action="#" method="get">
+
+                <h1>Registration</h1>
+                <h3>Personal Details</h3>
+                <table>
+                    <tr>
+                        <td><label for="fname">Full Name</label><br>
+                            <input type="text" id="fname" placeholder="Enter Your name" required></td>
+                        <td>
+                            <label for="father">Father Name</label><br>
+                            <input type="text" id="father" placeholder="Enter father name" required></td>
+                        <td>
+                            <label for="Mother">Mother Name</label><br>
+                            <input type="text" id="Mother" placeholder="Enter Mother name" required></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Date">Date of Birth</label><br>
+                            <input type="text" id="Date" placeholder="Enter Your DOB"></td>
+                        <td>
+                            <label for="Aadhar">Full Name</label><br>
+                            <input type="text" id="Aadhar" placeholder="Enter Aadhar Number" required>
+                        </td>
+                        <td>
+                            <label for="E-Mail">E-Mail</label><br>
+                            <input type="E-mail" id="E-Mail" placeholder="Enter Your E-Mail" required></td>
+
+                    </tr>
+                    <tr>
+
+                        <td> <label for="Mobile">Mobile Number</label><br>
+                            <input type="text" id="Mobile" placeholder="Enter Mobile Number" required></td>
+                        <td>
+                            <label for="Gender">Gender</label><br>
+                            <input type="text" id="Gender" placeholder="Enter Your Gender" required></td>
+                        <td>
+                            <label for="Address">Address</label><br>
+                            <input type="text" id="Addrress" placeholder="Enter Your Address"></td>
+                    </tr>
+                </table>
+                <hr>
+                <div class="other">
+                    <h3>Other Details</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="stream">Stream</label> <br>
+                                <input type="text" id="Stream" placeholder="Enter Your Stream"></td>
+                            <td>
+                                <label for="pv">Previous Class</label> <br>
+                                <input type="text" id="pv" placeholder="Enter Previous Class" maxlength="2">
+                            </td>
+                            <td>
+                                <label for="hobbie">Hobbies</label> <br>
+                                <input type="text" id="hobbie" placeholder="Enter Your Hobbies">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="account">Account Number</label> <br>
+                                <input type="text" id="account" placeholder="Enter Account Number"></td>
+                            <td>
+                                <label for="religion">Religion</label> <br>
+                                <input type="text" id="religion" placeholder="Enter Your Religion">
+                            </td>
+                            <td>
+                                <label for="Category">Category</label> <br>
+                                <input type="text" id="Category" placeholder="Enter Your Category">
+                            </td>
+                        </tr>
+                        <td>
+                            <center>
+                                <input type="button" value="submit" style="background-color:orange;">
+                            </center>
+                        </td>
+
+
+                        </tr>
+                </div>
+
+        </div>
+
+        </form>
+        </div>
+        </div>
+
+</body>
+</center>
 
 </html>
