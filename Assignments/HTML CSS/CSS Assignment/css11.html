@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #462fc8, #e9985b);
+        }
+        
+        .login-container {
+            padding: 20px;
+            border-radius: 10px;
+            border: black;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            background-color: #ddddddf8;
+            border: 1px solid black;
+        }
+        
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        
+        .login-container button {
+            width: 90px;
+            padding: 10px;
+            border: 1px;
+            border-radius: 5px;
+            background: #1b0072;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .login-container p {
+            margin-top: 20px;
+        }
+        
+        .login-container a {
+            color: rgb(17, 2, 2);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Enter Email" required>
+            <input type="password" placeholder=" Enter Password" required>
+            <button type="submit">Submit ></button>
+        </form>
+
+    </div>
+</body>
+
+</html>

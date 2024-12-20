@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+         :root {
+            --white: white;
+            --lightblack: rgba(23, 21, 21, 0.692);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .main {
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--black);
+            display: grid;
+            place-content: center;
+        }
+        
+        .container {
+            width: 45vw;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s ease-in-out;
+        }
+        
+        .overlay {
+            width: 0%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--lightblack);
+            text-transform: capitalize;
+            color: white;
+            font: 15px;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: 1s ease-in-out;
+        }
+        
+        .container:hover .overlay {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <img src="https://video-images.vice.com/_uncategorized/1539694286858-Taj-Mumbai-If-These-Walls-Could-Talk-7-of-12.jpeg" alt="" />
+            <div class="overlay">
+                <h3>Image Overlay</h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

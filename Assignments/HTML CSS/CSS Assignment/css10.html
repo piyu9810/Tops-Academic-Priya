@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            height: 480px;
+            width: 1000x;
+            margin: 1;
+            padding: 0;
+            border: 2px solid black;
+            text-align: right center;
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            background-color: #fff;
+        }
+        
+        .gallery-item {
+            margin: 10px;
+            width: calc(25% - 20px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .gallery-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .rotate:hover {
+            transform: rotate(10deg);
+        }
+        
+        .scale:hover {
+            transform: scale(1.1);
+        }
+        
+        .translate:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skew:hover {
+            transform: skewX(10deg);
+        }
+        
+        .skew:hover {
+            transform: rotateX(180deg);
+        }
+        
+        .rotate:hover {
+            transform: rotate(20deg);
+        }
+        
+        .translate:hover {
+            transform: translatex(-20px);
+        }
+        
+        .scale:hover {
+            transform: scale(1.5);
+        }
+        
+        .rotate:hover {
+            transform: rotate(10deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <div class="gallery-item rotate"> <img src="https://cdn.pixabay.com/photo/2018/02/18/13/10/nature-3162233_960_720.jpg" alt=""> </div>
+        <div class="gallery-item scale"> <img src="https://th.bing.com/th/id/OIP.mlYOLgAj1t5YMqXYrmehBwHaEK?rs=1&pid=ImgDetMain" alt=""> </div>
+        <div class="gallery-item translate"> <img src="https://i.pinimg.com/originals/e4/be/47/e4be47dafb1f86c16b80d0454f1b8d1b.jpg" alt=""> </div>
+        <div class="gallery-item skew"> <img src="https://1.bp.blogspot.com/-3DkwTWMvHMI/U2EB4TyumoI/AAAAAAAABX8/B30KOEi_cK8/s1600/Aegypmonach2.jpg" alt=""> </div>
+        <div class="gallery-item  rotate"> <img src="https://th.bing.com/th/id/OIP.c7GtphXawPXYwVZSrNAYyQHaE7?rs=1&pid=ImgDetMain" alt=""> </div>
+        <div class="gallery-item translate"> <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/great-blue-heron-at-merritt-island-national-wildlife-refuge-mary-ann-artz.jpg" alt=""> </div>
+        <div class="gallery-item  scale"> <img src="https://th.bing.com/th/id/OIP.Ez8p6TOlKgQ-rdcZ3KyqIwAAAA?rs=1&pid=ImgDetMain" alt=""> </div>
+        <div class="gallery-item rotate"> <img src="https://th.bing.com/th/id/OIP.XstdonaYf0Fib9z-IX-rtwHaGl?rs=1&pid=ImgDetMain" alt=""> </div>
+
+    </div>
+</body>
+
+</html>

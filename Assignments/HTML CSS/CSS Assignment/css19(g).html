@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+         :root {
+            --white: white;
+            --lightblack: rgba(23, 21, 21, 0.692);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .main {
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--black);
+            display: grid;
+            place-content: center;
+        }
+        
+        .container {
+            width: 45vw;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s ease-in-out;
+        }
+        
+        .overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0)rotate(0deg);
+            background-color: var(--lightblack);
+            color: white;
+            font-size: 15px;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: 1s ease-in-out;
+        }
+        
+        .overlay h1 {
+            transform: scale(0)rotate(0deg);
+            transition: 1s ease-in-out 1s;
+        }
+        
+        .container:hover .overlay h1 {
+            transform: scale(1)rotate(360deg);
+        }
+        
+        .container:hover .overlay {
+            transform: scale(1)rotate(360deg);
+        }
+        
+        .overlay {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <img src="https://th.bing.com/th/id/R.d0c70339022695c6bdd6cf77116ed2e5?rik=lQbR%2buHebDewjw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f05%2f24%2f304139-Eiffel_Tower-Paris-France.jpg&ehk=fY8bupjP4tzUocI1nRsqLByS2r%2fkecU4sjVxPkmA0NY%3d&risl=&pid=ImgRaw&r=0"
+                alt="" />
+            <div class="overlay">
+                <h3>Image Overlay</h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

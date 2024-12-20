@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .main {
+            max-width: 70vw;
+            margin: 50px auto;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            padding: 20px 20px;
+            border: 3px solid black;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease-in-out;
+        }
+        
+        .main .box:nth-child(3) {
+            grid-row-start: 1;
+            grid-column-start: 3;
+            grid-row-end: span 2;
+        }
+        
+        .main .box:nth-child(4) {
+            grid-row: 2/span 2;
+            grid-column: 1;
+            height: 90%;
+        }
+        
+        .box {
+            overflow: hidden;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="box"><img src="https://wallup.net/wp-content/uploads/2015/12/258088-sunset-landscape-horizon.jpg" alt="img"></div>
+        <div class="box"><img src="https://lp-cms-production.imgix.net/2021-06/500pxRF_113358197.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850&q=20&dpr=5" alt="img"></div>
+        <div class="box"><img src="https://www.planetware.com/wpimages/2019/10/asia-best-places-to-visit-mount-fuji-japan.jpg" alt="img"></div>
+        <div class="box"><img src="https://i.pinimg.com/originals/ef/7d/29/ef7d29352c87f6c62479383ff7c6a8f1.jpg" alt="img"></div>
+        <div class="box"><img src="https://th.bing.com/th/id/OIP.ibEZP2X1o6GHrBUGqlOPmQHaLE?rs=1&pid=ImgDetMain" alt="img"></div>
+        <div class="box"><img src="https://i.pinimg.com/originals/78/ad/59/78ad59739d1c6e2b4f20e8a28d4b5776.jpg" alt="img"></div>
+
+    </div>
+</body>
+
+</html>

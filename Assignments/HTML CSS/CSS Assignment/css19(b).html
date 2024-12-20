@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+         :root {
+            --white: white;
+            --lightblack: rgba(23, 21, 21, 0.692);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .main {
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--black);
+            display: grid;
+            place-content: center;
+        }
+        
+        .container {
+            width: 45vw;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s ease-in-out;
+        }
+        
+        .overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--lightblack);
+            text-transform: capitalize;
+            color: white;
+            display: flex;
+            place-items: center;
+            justify-content: center;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: 1s ease-in-out;
+        }
+        
+        .container:hover .overlay {
+            transform: scaley(1);
+        }
+        
+        .overlay {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <img src="https://th.bing.com/th/id/R.3175dc540dfe6b9e4ac00517086e4700?rik=N5QK4nhTaaewfA&riu=http%3a%2f%2fwww.forestwander.com%2fwp-content%2foriginal%2f2011_02%2fbeautiful-pink-flower.jpg&ehk=odzj%2bukR0ES%2bVffERmcJ08qxlxnGZlOdQfyrBzhZj3A%3d&risl=&pid=ImgRaw&r=0"
+                alt="" />
+            <div class="overlay">
+                <h1>Image Overlay</h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

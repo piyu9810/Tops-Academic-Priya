@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body,
+        html {
+            height: 100% font-family: Arial, Helvetice, sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .bg-img {
+            background-image: url("https://images.pexels.com/photos/13028093/pexels-photo-13028093.jpeg");
+            min-height: 480px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            object-fit: cover;
+        }
+        
+        .container {
+            position: absolute;
+            right: 0;
+            margin: 20px;
+            max-width: 200%;
+            padding: 16px;
+            background-color: white;
+        }
+        
+        .container input[type="text"] {
+            border: 2px solid grey;
+            height: 30px;
+            width: 80%;
+            border-radius: 20px;
+            text-indent: 10px;
+        }
+        
+        .container button {
+            background-color: lightsalmon;
+            border: 2px solid: black;
+            height: 30px;
+            width: 80%;
+            border-radius: 20px;
+        }
+        
+        p {
+            color: darkgreen;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="bg-img">
+        <form axtion="" class="container">
+            <p>Landfarm</p>
+            <h1>Request call Back Caurses <br>
+                <input type="text" value="Your name"><br>
+                <input type="text" value=" Email"><br>
+                <input type="text" value=" Phone"><br>
+                <input type="text" value=" Subject"><br>
+                <button type="submit" class="btn">Get It Now</button>
+            </h1>
+        </form>
+    </div>
+</body>
+
+</html>

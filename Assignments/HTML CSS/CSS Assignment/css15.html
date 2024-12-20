@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: brown;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .logo-icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu li {
+            margin: 0 15px;
+            position: relative;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        
+        .menu a:hover {
+            color: black;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 30px;
+            background: #444;
+            list-style: none;
+            padding: 5px 0;
+            border-radius: 2px;
+        }
+        
+        .dropdown-menu li {
+            margin: 0;
+        }
+        
+        .dropdown-menu a {
+            color: #fff;
+            padding: 10px 10px;
+            display: block;
+        }
+        
+        .dropdown-menu a:hover {
+            background: #555;
+        }
+        
+        .search-bar {
+            display: flex;
+        }
+        
+        .search-bar input {
+            padding: 5px 10px;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span>Cooking</span>
+            <img src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg" alt="logo" class="logo-icon">
+        </div>
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Classes</a></li>
+            <li class="dropdown">
+                <a href="#">Blog</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Blog 1</a></li>
+                    <li><a href="#">Blog 2</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Pages</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Enter Keyword...">
+        </div>
+    </nav>
+</body>
+
+</html>
