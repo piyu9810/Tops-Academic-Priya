@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            display: block;
+        }
+        
+        .password-container {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 12px;
+            cursor: pointer;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: red;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        button:hover {
+            background: black;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .radio-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-group input {
+            width: auto;
+            margin-right: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Register Here</h2>
+        <form id="registrationForm">
+            <label>Firstname:</label>
+            <input type="text" id="firstname">
+            <span class="error" id="errorFirstname"></span>
+
+            <label>Lastname:</label>
+            <input type="text" id="lastname">
+            <span class="error" id="errorLastname"></span>
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+            </div>
+            <span class="error" id="errorGender"></span>
+
+            <label>Address:</label>
+            <textarea id="address" placeholder="Enter 50 to 300 characters"></textarea>
+            <span class="error" id="errorAddress"></span>
+
+            <label>City:</label>
+            <select id="city">
+            <option value="">--Select--</option>
+            <option value="New York">Gujarat</option>
+            <option value="Los Angeles">Delhi</option>
+            <option value="Chicago">Ahmedabad</option>
+        </select>
+            <span class="error" id="errorCity"></span>
+
+            <label>Mobile No:</label>
+            <input type="text" id="mobile" maxlength="10">
+            <span class="error" id="errorMobile"></span>
+
+            <label>Email:</label>
+            <input type="text" id="email">
+            <span class="error" id="errorEmail"></span>
+
+            <label>Password:</label>
+            <div class="password-container">
+                <input type="password" id="password" minlength="8" maxlength="15">
+                <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+            </div>
+            <span class="error" id="errorPassword"></span>
+
+            <label>Confirm Password:</label>
+            <div class="password-container">
+                <input type="password" id="confirmPassword">
+                <span class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</span>
+            </div>
+            <span class="error" id="errorConfirmPassword"></span>
+
+            <button type="button" onclick="validateForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function togglePassword(id) {
+            let input = document.getElementById(id);
+            input.type = input.type === "password" ? "text" : "password";
+        }
+
+        function validateForm() {
+            let isValid = true;
+            document.querySelectorAll(".error").forEach(el => el.innerHTML = "");
+
+            let firstname = document.getElementById("firstname").value.trim();
+            let lastname = document.getElementById("lastname").value.trim();
+            let address = document.getElementById("address").value.trim();
+            let mobile = document.getElementById("mobile").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+            let city = document.getElementById("city").value;
+            let gender = document.querySelector('input[name="gender"]:checked');
+
+            let nameRegex = /^[A-Za-z]+$/;
+            if (!firstname.match(nameRegex)) {
+                document.getElementById("errorFirstname").innerHTML = "Only alphabets allowed";
+                isValid = false;
+            }
+            if (!lastname.match(nameRegex)) {
+                document.getElementById("errorLastname").innerHTML = "Only alphabets allowed";
+                isValid = false;
+            }
+
+            if (!gender) {
+                document.getElementById("errorGender").innerHTML = "Select gender";
+                isValid = false;
+            }
+
+            if (address.length < 35 || address.length > 200) {
+                document.getElementById("errorAddress").innerHTML = "Address must be between 35 to 200 characters";
+                isValid = false;
+            }
+
+            if (city === "") {
+                document.getElementById("errorCity").innerHTML = "Select a city";
+                isValid = false;
+            }
+
+            let mobileRegex = /^[0-9]{10}$/;
+            if (!mobile.match(mobileRegex)) {
+                document.getElementById("errorMobile").innerHTML = "Enter a valid 10-digit mobile number";
+                isValid = false;
+            }
+
+            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email.match(emailRegex)) {
+                document.getElementById("errorEmail").innerHTML = "Enter a valid email address";
+                isValid = false;
+            }
+
+            if (password.length < 8 || password.length > 15) {
+                document.getElementById("errorPassword").innerHTML = "Password must be 8 to 15 characters";
+                isValid = false;
+            }
+
+            if (confirmPassword !== password) {
+                document.getElementById("errorConfirmPassword").innerHTML = "Passwords do not match";
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Form submitted successfully!");
+                document.getElementById("registrationForm").reset();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

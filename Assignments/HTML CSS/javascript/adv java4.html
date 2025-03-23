@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 20px;
+        }
+        
+        input {
+            width: 60px;
+            padding: 5px;
+            margin: 5px;
+        }
+        
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        #output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Prime Numbers using Recursion</h2>
+    <label>From: <input type="number" id="start" value="11"></label>
+    <label>To: <input type="number" id="end" value="30"></label>
+    <button onclick="displayPrimes()">Display</button>
+
+    <pre>------ Prime Numbers are ------</pre>
+    <p id="output"></p>
+
+    <script>
+        function isPrime(num, divisor = 2) {
+            if (num < 2) return false;
+            if (divisor * divisor > num) return true;
+            if (num % divisor === 0) return false;
+            return isPrime(num, divisor + 1);
+        }
+
+
+        function findPrimes(start, end, primes = []) {
+            if (start > end) return primes;
+            if (isPrime(start)) primes.push(start);
+            return findPrimes(start + 1, end, primes);
+        }
+
+        function displayPrimes() {
+            let start = parseInt(document.getElementById("start").value);
+            let end = parseInt(document.getElementById("end").value);
+
+            if (start > end) {
+                document.getElementById("output").innerText = "Invalid range!";
+                return;
+            }
+
+            let primes = findPrimes(start, end);
+            document.getElementById("output").innerText = primes.join(" ");
+        }
+    </script>
+
+</body>
+
+</html>

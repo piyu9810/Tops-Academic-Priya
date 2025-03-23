@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            background: black;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Payment Module</h2>
+
+        <label>Enter Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Total Fees:</label>
+        <input type="number" id="totalFees" placeholder="Enter total fees">
+
+        <label>Paid Fees:</label>
+        <div class="radio-group">
+            <input type="radio" name="paymentMethod" value="cheque" onclick="showPaymentDetails()"> Cheque
+            <input type="radio" name="paymentMethod" value="upi" onclick="showPaymentDetails()"> UPI
+            <input type="radio" name="paymentMethod" value="cash" onclick="showPaymentDetails()"> Cash
+        </div>
+
+        <div id="chequeDetails" class="hidden">
+            <label>Cheque No:</label>
+            <input type="text" id="chequeNo" placeholder="Enter Cheque No">
+        </div>
+
+        <div id="upiDetails" class="hidden">
+            <label>UPI ID:</label>
+            <input type="text" id="upiId" placeholder="Enter UPI ID">
+        </div>
+
+        <div id="cashDetails" class="hidden">
+            <label>Cash Amount:</label>
+            <input type="number" id="cashAmount" placeholder="Enter Cash Amount">
+        </div>
+
+        <label>Amount Paid:</label>
+        <input type="number" id="amountPaid" placeholder="Enter paid amount" oninput="calculateRemaining()">
+
+        <label>Remaining Fees:</label>
+        <input type="text" id="remainingFees" readonly>
+
+        <button onclick="generatePDF()">Convert to PDF</button>
+    </div>
+
+    <script>
+        function showPaymentDetails() {
+            document.getElementById("chequeDetails").classList.add("hidden");
+            document.getElementById("upiDetails").classList.add("hidden");
+            document.getElementById("cashDetails").classList.add("hidden");
+
+            let selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+            if (selectedMethod === "cheque") {
+                document.getElementById("chequeDetails").classList.remove("hidden");
+            } else if (selectedMethod === "upi") {
+                document.getElementById("upiDetails").classList.remove("hidden");
+            } else if (selectedMethod === "cash") {
+                document.getElementById("cashDetails").classList.remove("hidden");
+            }
+        }
+
+        function calculateRemaining() {
+            let totalFees = parseFloat(document.getElementById("totalFees").value) || 0;
+            let amountPaid = parseFloat(document.getElementById("amountPaid").value) || 0;
+            let remainingFees = totalFees - amountPaid;
+            document.getElementById("remainingFees").value = remainingFees >= 0 ? remainingFees : "Invalid amount!";
+        }
+
+        function generatePDF() {
+            const {
+                jsPDF
+            } = window.jspdf;
+            let doc = new jsPDF();
+
+            let name = document.getElementById("name").value;
+            let totalFees = document.getElementById("totalFees").value;
+            let amountPaid = document.getElementById("amountPaid").value;
+            let remainingFees = document.getElementById("remainingFees").value;
+            let paymentMethod = document.querySelector('input[name="paymentMethod"]:checked') ? .value || "Not selected";
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(18);
+            doc.text("Payment Receipt", 80, 20);
+
+            doc.setFontSize(12);
+            doc.text(`Name: ${name}`, 20, 40);
+            doc.text(`Total Fees: ${totalFees}`, 20, 50);
+            doc.text(`Amount Paid: ${amountPaid}`, 20, 60);
+            doc.text(`Remaining Fees: ${remainingFees}`, 20, 70);
+            doc.text(`Payment Method: ${paymentMethod}`, 20, 80);
+
+            if (paymentMethod === "cheque") {
+                let chequeNo = document.getElementById("chequeNo").value;
+                doc.text(`Cheque No: ${chequeNo}`, 20, 90);
+            } else if (paymentMethod === "upi") {
+                let upiId = document.getElementById("upiId").value;
+                doc.text(`UPI ID: ${upiId}`, 20, 90);
+            } else if (paymentMethod === "cash") {
+                let cashAmount = document.getElementById("cashAmount").value;
+                doc.text(`Cash Amount: ${cashAmount}`, 20, 90);
+            }
+
+            doc.save("Payment_Receipt.pdf");
+        }
+    </script>
+
+</body>
+
+</html>

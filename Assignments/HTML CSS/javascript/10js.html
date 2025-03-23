@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        
+        .error {
+            color: red;
+            font-size: 15px;
+        }
+        
+        .pass {
+            color: green;
+        }
+        
+        .fail {
+            color: red;
+        }
+        
+        button {
+            margin: 10px;
+            padding: 7px 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="marksheet">
+        <h2>Marksheet for Bcom</h2>
+        <p>Enter Marks</p>
+
+        <label>Financial Accounting:</label>
+        <input type="number" id="sub1"><span class="error" id="err1"></span><br><br>
+
+        <label>Business Economics:</label>
+        <input type="number" id="sub2"><span class="error" id="err2"></span><br><br>
+
+        <label>Marketing:</label>
+        <input type="number" id="sub3"><span class="error" id="err3"></span><br><br>
+
+        <label>Business Stastics:</label>
+        <input type="number" id="sub4"><span class="error" id="err4"></span><br><br>
+
+        <label>Auditing:</label>
+        <input type="number" id="sub5"><span class="error" id="err5"></span><br><br>
+
+        <label>Cost Accounting:</label>
+        <input type="number" id="sub6"><span class="error" id="err6"></span><br><br>
+
+        <label>Corporate Accounting:</label>
+        <input type="number" id="sub7"><span class="error" id="err7"></span><br><br>
+
+        <button onclick="calculateResult()">Result</button>
+        <button onclick="downloadPDF()">Download PDF</button>
+        <button onclick="printMarksheet()">Print Marksheet</button>
+
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function calculateResult() {
+            let subjects = [];
+            let totalMarks = 0;
+            let maxMarks = 50;
+            let totalMax = 350;
+            let isValid = true;
+
+
+            for (let i = 1; i <= 7; i++) {
+                document.getElementById("err" + i).innerText = "";
+            }
+
+
+            for (let i = 1; i <= 7; i++) {
+                let mark = parseFloat(document.getElementById("sub" + i).value);
+
+                if (isNaN(mark) || mark < 0 || mark > maxMarks) {
+                    document.getElementById("err" + i).innerText = " Invalid marks";
+                    isValid = false;
+                } else {
+                    subjects.push(mark);
+                    totalMarks += mark;
+                }
+            }
+
+            if (!isValid) {
+                document.getElementById("output").innerHTML = "";
+                return;
+            }
+
+
+            let percentage = (totalMarks / totalMax) * 100;
+            let result = percentage >= 70 ? "Pass" : "Fail";
+            let resultClass = percentage >= 70 ? "pass" : "fail";
+
+
+            document.getElementById("output").innerHTML =
+                `Total: ${totalMarks} / ${totalMax} <br> Percentage: ${percentage.toFixed(2)}% <br> 
+             <span class='${resultClass}'>You are: ${result}</span>`;
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById("marksheet");
+            html2pdf().from(element).save("Marksheet.pdf");
+        }
+
+        function printMarksheet() {
+            window.print();
+        }
+    </script>
+
+</body>
+
+</html>

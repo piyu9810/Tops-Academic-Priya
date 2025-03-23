@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 20px;
+        }
+        
+        input {
+            width: 60px;
+            padding: 5px;
+            margin: 5px;
+        }
+        
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        #output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Factorial using Recursion</h2>
+    <label>Enter Number: <input type="number" id="num" value="6"></label>
+    <button onclick="displayFactorial()">Display</button>
+
+    <p id="output"></p>
+
+    <script>
+        function factorial(n) {
+            if (n === 0 || n === 1) return 1;
+            return n * factorial(n - 1);
+            l
+        }
+
+        function displayFactorial() {
+            let num = parseInt(document.getElementById("num").value);
+            if (num < 0) {
+                document.getElementById("output").innerText = "Factorial of negative numbers is not defined!";
+                return;
+            }
+
+            let result = factorial(num);
+            document.getElementById("output").innerText = `Factorial number of ${num} is ${result}`;
+        }
+    </script>
+
+</body>
+
+</html>

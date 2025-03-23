@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            height: 200vh;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .counter-section {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #d3d3d3;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 30px;
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="counter-section">
+        Scroll Count: <span id="scrollCount">0</span>
+    </div>
+
+    <script>
+        let counter = 0;
+
+        window.addEventListener("scroll", function() {
+            counter += 1;
+            document.getElementById("scrollCount").innerText = counter;
+        });
+    </script>
+
+</body>
+
+</html>

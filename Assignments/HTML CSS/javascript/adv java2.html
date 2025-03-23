@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 20px;
+        }
+        
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+        
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Create Box Model Calculation using Currying Function</h2>
+
+    <label>Enter Height: <input type="number" id="height" value="100"></label><br>
+    <label>Enter Width: <input type="number" id="width" value="100"></label><br>
+    <label>Enter Padding: <input type="number" id="padding" value="20"></label><br>
+    <label>Enter Border: <input type="number" id="border" value="5"></label><br>
+    <label>Enter Margin: <input type="number" id="margin" value="20"></label><br>
+
+    <button onclick="calculateBoxModel()">Calculate</button>
+
+    <h3>Total Dimension of div: <span id="result">0</span></h3>
+
+    <script>
+        function boxModel(height) {
+            return function(width) {
+                return function(padding) {
+                    return function(border) {
+                        return function(margin) {
+                            return height + width + 2 * (padding + border + margin);
+                        };
+                    };
+                };
+            };
+        }
+
+        function calculateBoxModel() {
+
+            let height = parseInt(document.getElementById("height").value);
+            let width = parseInt(document.getElementById("width").value);
+            let padding = parseInt(document.getElementById("padding").value);
+            let border = parseInt(document.getElementById("border").value);
+            let margin = parseInt(document.getElementById("margin").value);
+
+            let totalDimension = boxModel(height)(width)(padding)(border)(margin);
+
+            document.getElementById("result").innerText = totalDimension;
+        }
+    </script>
+</body>
+
+</html>
