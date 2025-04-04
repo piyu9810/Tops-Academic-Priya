@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #1D1F21;
+            color: orangered;
+            text-align: center;
+        }
+        
+        input,
+        button {
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            background: #000000;
+            padding: 10px;
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+        
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Todo List</h1>
+    <input type="text" id="todoInput" placeholder="Add new">
+    <button id="addButton">Add</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadTodos);
+        document.getElementById("addButton").addEventListener("click", handleAddClick);
+
+        function loadTodos() {
+            const todos = JSON.parse(localStorage.getItem("todos") || "[]");
+            todos.forEach(todo => addTodoToList(todo));
+        }
+
+        function addTodoToList(todo) {
+            const li = document.createElement("li");
+            li.textContent = todo;
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "X";
+            deleteBtn.classList.add("delete-btn");
+            deleteBtn.onclick = () => removeTodoFromList(todo, li);
+
+            li.appendChild(deleteBtn);
+            document.getElementById("todoList").appendChild(li);
+        }
+
+        function handleAddClick() {
+            const inputField = document.getElementById("todoInput");
+            const newTodo = inputField.value.trim();
+
+            if (!newTodo) return;
+
+            const todos = JSON.parse(localStorage.getItem("todos") || "[]");
+            if (todos.some(t => t.toLowerCase() === newTodo.toLowerCase())) return;
+
+            addTodoToList(newTodo);
+            storeTodos(newTodo);
+            inputField.value = "";
+        }
+
+        function storeTodos(newTodo) {
+            const todos = JSON.parse(localStorage.getItem("todos") || "[]");
+            todos.push(newTodo);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+
+        function removeTodoFromList(todo, element) {
+            element.remove();
+            const todos = JSON.parse(localStorage.getItem("todos") || "[]");
+            const updatedTodos = todos.filter(t => t !== todo);
+            localStorage.setItem("todos", JSON.stringify(updatedTodos));
+        }
+    </script>
+</body>
+
+</html>
