@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products </title>
+    <style>
+        body {
+            margin: 0px;
+            background-color: white;
+        }
+        
+        .navbar {
+            background-color: lightcyan;
+            color: black;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-icon {
+            font-size: 3.8rem;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: rgb(40, 44, 92);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 20px;
+        }
+        
+        .container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .item {
+            background: rgb(173, 231, 231);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 4rem;
+            text-align: center;
+        }
+        
+        .item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        .item h3 {
+            margin: 0.5rem 0 0.3rem;
+            padding: auto;
+        }
+        
+        .item p {
+            margin: 0.2rem 0;
+            padding: AUTO;
+        }
+        
+        .item button {
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <h2>product</h2>
+        <div class="cart-icon" onclick="alert('Cart clicked! Add your logic here')">
+            🛒 <span class="cart-count">0</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="item" data-price="1595">
+            <img src="https://m.media-amazon.com/images/I/61pn-AJesDL._SL1000_.jpg" alt="" />
+            <h3>Perfume</h3>
+            <p>₹1595</p>
+            <button onclick="addToCart(1595)">Add to Cart</button>
+        </div>
+        <div class="item" data-price="236">
+            <img src="https://m.media-amazon.com/images/I/61fqwozv1BL._SL1500_.jpg" alt="" />
+            <h3>Face Cream</h3>
+            <p>₹236</p>
+            <button onclick="addToCart(236)">Add to Cart</button>
+        </div>
+        <div class="item" data-price="240">
+            <img src="https://m.media-amazon.com/images/I/51SBvvInYnL._SL1200_.jpg" alt="" />
+            <h3> Face Cream</h3>
+            <p>₹240</p>
+            <button onclick="addToCart(240)">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+        let totalItems = 0;
+        let totalPrice = 0;
+
+        function addToCart(price) {
+            totalItems++;
+            document.querySelector('.cart-count').textContent = totalItems;
+            document.getElementById('item-count').textContent = totalItems;
+        }
+    </script>
+</body>
+
+</html>
