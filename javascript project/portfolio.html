@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, skyblue, cyan);
+            color: black;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .section {
+            padding: 40px;
+        }
+        
+        .hire-me {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .skill {
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid white;
+            margin: 5px;
+            transition: transform 0.3s ease;
+            background: black;
+            color: white;
+        }
+        
+        .skill:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#personal">Personal Details</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Qualification</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Hire Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Hello, I'm Priya Patel</h1>
+            <p>A passionate front-end developer exploring the creative world of coding!</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container mt-5">
+        <h2>About Me</h2>
+        <p>I Am a Frontend Developer</p>
+        <p> Specializing In HTML/CSS,Javascript, and React.js Skilled In Creating Intuitive,User-friendly Websites and applications.</p>
+    </section>
+
+    <!-- Personal Details Section -->
+    <section id="personal" class="container mt-5">
+        <h2>Personal Details</h2>
+        <p>Name: Priya Patel</p>
+        <p>phone:9879453210</p>
+        <p>Email:priya Patel10@gmail.com</p>
+        <p>Address:Navsari(Gujarat)</p>
+        <p>Age:25</p>
+    </section>
+
+    <!-- Qualification Section -->
+    <section id="Qualification" class="container mt-5">
+        <h2>Qualification</h2>
+        <ul>
+            <li>Bachelor's Degree in Computer Engineering - GTU University</li>
+            <li>Diploma Degree in Computer Engineering - GTU University</li>
+            <li>Front-End Development Course </li>
+        </ul>
+    </section>
+
+
+    <section id="skills" class="container mt-5">
+        <h2>Skills</h2>
+        <div class="skill-list">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">Bootstrap</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React.js</span>
+        </div>
+    </section>
+
+    <section id="projects" class="container mt-5">
+        <h2>Projects</h2>
+        <div class="grid-container">
+            <div class="grid-item">Responsive Portfolio</div>
+            <div class="grid-item">javascript project</div>
+        </div>
+    </section>
+
+    <section id="internship" class="container mt-5">
+        <h2>Internship Experience</h2>
+        <p> Company Name:Web Vector Design Company.</p>
+        <p> I have learnt Figma, wordpress and Bootstrap.</p>
+    </section>
+
+    <div class="container mt-5">
+        <a href="#" class="btn btn-primary me-2">My CV</a>
+    </div>
+
+    <!-- Hire Me Section -->
+    <section id="contact" class="hire-me">
+        <h2>Let's Connect</h2>
+        <button class="btn btn-success" onclick="hireMe()">Hire Now</button>
+    </section>
+
+    <script>
+        function hireMe() {
+            alert("Thank you for your interest! Contact me at Priya patel10@gmail.com.");
+        }
+    </script>
+
+</body>
+
+</html>
